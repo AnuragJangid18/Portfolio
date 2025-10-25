@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website showcasing my journey as an AI & ML Engineering student and web developer.
 
-![Portfolio Preview](profile.jpg)
+![Portfolio Preview](project1.png)
 
 ## 🌟 Features
 
@@ -79,7 +79,7 @@ portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/AnuragJangid18/Portfolio.git
    ```
 
 2. **Navigate to the project directory**
@@ -180,9 +180,9 @@ This project is open source and available under the [MIT License](LICENSE).
 - 🎓 AI & ML Engineering Student
 - 💼 Web Developer
 - 📍 Bengaluru, Karnataka, India
-- 📧 [Your Email]
-- 🔗 [LinkedIn](your-linkedin-url)
-- 🐱 [GitHub](your-github-url)
+- 📧 [anurag.jangid1811@gmail.com]
+- 🔗 [LinkedIn](https://www.linkedin.com/in/anurag-jangid18/)
+- 🐱 [Twitter/X](https://x.com/AnuragJang40094)
 
 ## 🙏 Acknowledgments
 
@@ -206,9 +206,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 For any queries or suggestions, feel free to reach out:
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
+- **Email**: anurag.jangid1811@gmail.com
+- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/anurag-jangid18/)
+- **GitHub**: [Your Twitter/X Profile](https://x.com/AnuragJang40094)
 
 ---
 
