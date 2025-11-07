@@ -199,7 +199,7 @@
                         
                         <div class="contact-form">
                             <h3 style="margin-bottom: 1.5rem; color: var(--color-primary);">Send me a message</h3>
-                            <form onsubmit="handleSubmit(event)">
+                            <form onsubmit="sendEmail(event)">
                                 <div class="form-group">
                                     <label class="form-label" for="name">Name</label>
                                     <input type="text" id="name" class="form-input" required>
@@ -259,7 +259,14 @@
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Replace with your actual Public Key from EmailJS
+         emailjs.init({ publicKey: "D3a8UclaVBhmuVdGx" });
+    </script>
+
     <script src="app.js"></script>
-    
+
 </body>
 </html>
