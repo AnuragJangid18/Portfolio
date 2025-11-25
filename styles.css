@@ -447,11 +447,40 @@
             border-radius: 16px;
             margin-bottom: 1rem;
             border: 1px solid var(--color-border);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .project-preview:hover {
+        .project-link {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .project-link::after {
+            content: "🔗 View";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project-link:hover::after {
+            opacity: 1;
+        }
+        
+        .project-link:hover .project-preview {
             transform: scale(1.05);
+            box-shadow: 0 8px 24px var(--color-shadow);
+            filter: brightness(0.8);
         }
         
         /* Contact Section */
@@ -529,6 +558,26 @@
         .contact-icon {
             font-size: 1.5rem;
             color: var(--color-primary);
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.2);
+            color: var(--color-primary-hover);
+        }
+
+        /* Clickable contact icons styling */
+        a.contact-icon {
+            color: var(--color-primary);
+        }
+
+        a.contact-icon:hover {
+            color: var(--color-primary-dark);
+        }
+
+        [data-theme="dark"] a.contact-icon:hover {
+            color: var(--color-primary-light);
         }
         
         .contact-details h4 {
@@ -588,5 +637,169 @@
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
+            }
+        }
+
+        /* Form message animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Scroll to top button hover effect */
+        #scrollTopBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px var(--color-shadow);
+        }
+
+        /* Loading spinner for async operations */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile Browser Optimizations */
+        @media (max-width: 768px) {
+            /* Touch-friendly tap targets */
+            .btn, .nav-link, .contact-icon, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Better mobile typography */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Prevent horizontal scroll */
+            body, html {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
+
+            /* Mobile-optimized form inputs */
+            .form-input, .form-textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                -webkit-appearance: none;
+                appearance: none;
+                border-radius: 8px;
+            }
+
+            /* Better mobile card spacing */
+            .dashboard-card, .info-card {
+                margin-bottom: 1rem;
+            }
+
+            /* Optimize project images for mobile */
+            .project-preview {
+                height: 150px;
+            }
+
+            /* Safe area for notched devices */
+            .navbar {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+
+            .content {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+                padding-bottom: max(1rem, env(safe-area-inset-bottom));
+            }
+
+            /* Improve mobile button press feedback */
+            .btn:active {
+                transform: scale(0.95);
+            }
+
+            /* Better mobile sidebar overlay */
+            .sidebar.mobile-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 260px;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+        }
+
+        /* Reduced motion for accessibility and performance */
+        @media (prefers-reduced-motion: reduce), (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body.reduce-motion * {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        /* iOS specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            /* Fix for iOS Safari bottom bar */
+            .content {
+                min-height: calc(100vh - 60px);
+                min-height: calc(var(--vh, 1vh) * 100 - 60px);
+            }
+
+            /* Prevent rubber band scrolling */
+            body {
+                overscroll-behavior-y: contain;
+            }
+        }
+
+        /* Android specific optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Better touch interactions */
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+            }
+
+            a, button {
+                -webkit-tap-highlight-color: rgba(74, 222, 128, 0.2);
             }
         }
