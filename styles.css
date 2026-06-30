@@ -90,12 +90,18 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-primary);
+            padding-left: 0.5rem;
             white-space: nowrap;
             overflow: hidden;
+            max-width: 100%;
+            transition: max-width 0.3s ease, padding-left 0.3s ease, opacity 0.3s ease;
         }
         
         .sidebar.collapsed .logo {
             font-size: 1.2rem;
+            padding-left: 0;
+            max-width: 0;
+            opacity: 0;
         }
         
         .toggle-sidebar-btn {
